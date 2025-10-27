@@ -15,13 +15,15 @@ This project aims to predict whether a social media post will go viral based on 
 - Analyze feature importance and document findings in a final report.
 
 ## Data Collection Plan
-### Part 1 (Author 1)
+### Author 1
 - Collect Twitter datasets using the Twitter API, focusing on tweets with engagement metrics (likes, retweets, replies).  
-- Extract text, hashtags, posting time, and user follower count.  
+- Extract text, hashtags, posting time, and user follower count.
+- A post will be labeled as viral if its engagement exceeds a certain threshold, such as being in the top 10% by retweet count.
 
-### Part 2 (Author 2)
+### Author 2
 - Collect Reddit posts and comments from various subreddits using the Pushshift API.  
 - Include metadata such as score, number of comments, post text, and posting time.
+- Posts in the top 10% of the score distribution will be labeled as viral to maintain consistency across both platforms.
 
 ## Model Plans
 ### Part 1 
