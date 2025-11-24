@@ -49,7 +49,7 @@ This project aims to predict whether a Reddit post will go viral based on its co
 - Extracted features include:
   - **Text features**: Character count, word count, title/body lengths, punctuation patterns (question marks, exclamation marks), uppercase ratio
   - **Engagement features**: Post score, comment score, comment-to-score ratio, total engagement, comment presence and length
-  - **Subreddit features**: Subreddit frequency (from `reddit_data_counts.json`) and encoded subreddit category (extracted from URL)
+  - **Subreddit features**: Subreddit frequency (from `reddit_data_counts.json`)
 
 - Posts in the top 10% of the score distribution will be labeled as viral to maintain consistency across both datasets.
 
@@ -65,7 +65,7 @@ Author 2 (Uyen Pham) will work with the **Reddit dataset** and design a **Random
 
 - **Text-based features**: Text length, word count, title/body lengths, punctuation patterns (question marks, exclamation marks), uppercase ratio
 - **Engagement features**: Post score, comment score, comment-to-score ratio, total engagement, comment presence indicators
-- **Subreddit features**: Subreddit frequency (loaded from `reddit_data_counts.json`) and encoded subreddit category (extracted from URL)
+- **Subreddit features**: Subreddit frequency (loaded from `reddit_data_counts.json`)
 
 The ensemble nature of Random Forest allows it to capture non-linear relationships between features and virality, while its ability to provide feature importance scores will help identify which factors most strongly predict viral content. By training on multiple decision trees and aggregating their predictions, Random Forest will be robust to overfitting and capable of handling the mixed data types common in social media analysis. The model will output both a binary classification (viral or not viral) and feature importance rankings to understand what drives virality.
 
@@ -81,13 +81,13 @@ The ensemble nature of Random Forest allows it to capture non-linear relationshi
 
 ### Phase 2: Feature Engineering and Preprocessing (Week 3) 
 - [ ] Extract and engineer text-based features (character count, word count, punctuation patterns)
-- [ ] Extract temporal features (hour, day of week, posting patterns) - Author 1 only
+- [ ] Extract temporal features (hour, day of week, posting patterns)
 - [ ] Calculate engagement metrics and ratios (comment-to-score ratios, total engagement)
 - [ ] Perform advanced feature engineering:
   - Author 1: Sequence features for LSTM (conversation thread patterns, temporal sequences)
   - Author 2: Text and engagement features for Random Forest (text length, word count, engagement ratios, subreddit encoding)
 - [ ] Handle missing values and outliers
-- [ ] Normalize and scale features as needed (Random Forest does not require scaling)
+- [ ] Normalize and scale features as needed
 
 ### Phase 3: Model Development (Weeks 4-5)
 - [ ] **Author 1 - LSTM Model:**
