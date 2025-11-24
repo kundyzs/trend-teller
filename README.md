@@ -83,7 +83,19 @@ Author 2 (Uyen Pham) will work with the **Reddit dataset** and design a **Random
   - [ ] Train model with diverse feature set
   - [ ] Tune hyperparameters (n_estimators, max_depth, min_samples_split)
 
-- Week 4–5: Model training and evaluation  
+## Phase 4: Model Evaluation and Analysis (Week 5)
+- [ ] Split data into train/validation/test sets  
+- [ ] Evaluate both models using multiple metrics:
+  - Accuracy, Precision, Recall, F1-score  
+  - ROC-AUC curves  
+  - Confusion matrices  
+- [ ] Compare model performance  
+- [ ] Analyze feature importance (Random Forest) and attention patterns (LSTM)  
+- [ ] Identify key factors driving virality predictions  
 
-- Week 6: Feature analysis, results summary, and final report preparation
-
+## Phase 5: Results and Documentation (Week 6)
+- [ ] Compile comprehensive results summary  
+- [ ] Create visualizations of model performance and feature importance  
+- [ ] Document findings and insights about viral content patterns  
+- [ ] Prepare final report with methodology, results, and conclusions  
+- [ ] Review and refine documentation  
