@@ -36,7 +36,20 @@ This project aims to predict whether a Reddit post will go viral based on its co
 
 - Use the Reddit dataset from Kaggle: [https://www.kaggle.com/datasets/rohitrajesh/reddit-dataset](https://www.kaggle.com/datasets/rohitrajesh/reddit-dataset)
 
-- Include metadata such as score, number of comments, post text, and posting time.
+- Dataset contains 6,187 Reddit posts with the following fields:
+  - `title`: Post title text
+  - `body`: Post body/content text
+  - `url`: Post URL (used to extract subreddit)
+  - `post_score`: Upvote score of the post
+  - `comment`: Top comment text
+  - `comment_score`: Upvote score of the top comment
+
+- Additional data file: `reddit_data_counts.json` contains subreddit frequency counts (e.g., "business": 311, "datascience": 1031, etc.)
+
+- Extracted features include:
+  - **Text features**: Character count, word count, title/body lengths, punctuation patterns (question marks, exclamation marks), uppercase ratio
+  - **Engagement features**: Post score, comment score, comment-to-score ratio, total engagement, comment presence and length
+  - **Subreddit features**: Subreddit frequency (from `reddit_data_counts.json`) and encoded subreddit category (extracted from URL)
 
 - Posts in the top 10% of the score distribution will be labeled as viral to maintain consistency across both datasets.
 
@@ -48,11 +61,17 @@ Author 1 (Kundyz Serzhankyzy) will work with the **Reddit Conversations dataset*
 
 ### Author 2: Reddit Dataset + Random Forest Model
 
-Author 2 (Uyen Pham) will work with the **Reddit dataset** and design a **Random Forest classifier** to analyze how multiple features—including content characteristics, metadata, and engagement metrics—contribute to post virality. The Random Forest model will integrate diverse feature types into a single ensemble classifier. It will combine text-based features (such as sentiment scores, keyword counts, and topic keywords), metadata (posting time, user influence metrics), and engagement ratios (early engagement rates, comment-to-upvote ratios). The ensemble nature of Random Forest allows it to capture non-linear relationships between features and virality, while its ability to provide feature importance scores will help identify which factors most strongly predict viral content. By training on multiple decision trees and aggregating their predictions, Random Forest will be robust to overfitting and capable of handling the mixed data types common in social media analysis. The model will output both a binary classification (viral or not viral) and feature importance rankings to understand what drives virality.
+Author 2 (Uyen Pham) will work with the **Reddit dataset** and design a **Random Forest classifier** to analyze how multiple features—including content characteristics, metadata, and engagement metrics—contribute to post virality. The Random Forest model will integrate diverse feature types into a single ensemble classifier. It combines:
+
+- **Text-based features**: Text length, word count, title/body lengths, punctuation patterns (question marks, exclamation marks), uppercase ratio
+- **Engagement features**: Post score, comment score, comment-to-score ratio, total engagement, comment presence indicators
+- **Subreddit features**: Subreddit frequency (loaded from `reddit_data_counts.json`) and encoded subreddit category (extracted from URL)
+
+The ensemble nature of Random Forest allows it to capture non-linear relationships between features and virality, while its ability to provide feature importance scores will help identify which factors most strongly predict viral content. By training on multiple decision trees and aggregating their predictions, Random Forest will be robust to overfitting and capable of handling the mixed data types common in social media analysis. The model will output both a binary classification (viral or not viral) and feature importance rankings to understand what drives virality.
 
 ## Project Timeline
 
-### Phase 1: Data Collection and Initial Preparation (Weeks 1-2) ✅ In Progress
+### Phase 1: Data Collection and Initial Preparation (Weeks 1-2) ✅ In progress
 - [x] Set up project structure and documentation
 - [x] Create data preparation notebook with automated data loading and cleaning pipeline
 - [x] Download and load Reddit Conversations dataset (Author 1)
@@ -61,14 +80,14 @@ Author 2 (Uyen Pham) will work with the **Reddit dataset** and design a **Random
 - [ ] Implement virality labeling (top 10% threshold) for both datasets
 
 ### Phase 2: Feature Engineering and Preprocessing (Week 3) 
-- [ ] Extract and engineer text-based features (character count, word count, sentiment analysis)
-- [ ] Extract temporal features (hour, day of week, posting patterns)
-- [ ] Calculate engagement metrics and ratios (comment-to-score ratios, early engagement rates)
+- [ ] Extract and engineer text-based features (character count, word count, punctuation patterns)
+- [ ] Extract temporal features (hour, day of week, posting patterns) - Author 1 only
+- [ ] Calculate engagement metrics and ratios (comment-to-score ratios, total engagement)
 - [ ] Perform advanced feature engineering:
   - Author 1: Sequence features for LSTM (conversation thread patterns, temporal sequences)
-  - Author 2: Aggregated features for Random Forest (keyword frequencies, topic modeling)
+  - Author 2: Text and engagement features for Random Forest (text length, word count, engagement ratios, subreddit encoding)
 - [ ] Handle missing values and outliers
-- [ ] Normalize and scale features as needed
+- [ ] Normalize and scale features as needed (Random Forest does not require scaling)
 
 ### Phase 3: Model Development (Weeks 4-5)
 - [ ] **Author 1 - LSTM Model:**
