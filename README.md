@@ -52,9 +52,36 @@ Author 2 (Uyen Pham) will work with the **Reddit dataset** and design a **Random
 
 ## Project Timeline
 
-- Week 1–2: Data collection and cleaning  
+### Phase 1: Data Collection and Initial Preparation (Weeks 1-2) ✅ In Progress
+- [x] Set up project structure and documentation
+- [x] Create data preparation notebook with automated data loading and cleaning pipeline
+- [x] Download and load Reddit Conversations dataset (Author 1)
+- [x] Download and load Reddit dataset (Author 2)
+- [x] Complete initial data exploration and quality assessment
+- [ ] Implement virality labeling (top 10% threshold) for both datasets
 
-- Week 3: Feature engineering and preprocessing  
+### Phase 2: Feature Engineering and Preprocessing (Week 3) 
+- [ ] Extract and engineer text-based features (character count, word count, sentiment analysis)
+- [ ] Extract temporal features (hour, day of week, posting patterns)
+- [ ] Calculate engagement metrics and ratios (comment-to-score ratios, early engagement rates)
+- [ ] Perform advanced feature engineering:
+  - Author 1: Sequence features for LSTM (conversation thread patterns, temporal sequences)
+  - Author 2: Aggregated features for Random Forest (keyword frequencies, topic modeling)
+- [ ] Handle missing values and outliers
+- [ ] Normalize and scale features as needed
+
+### Phase 3: Model Development (Weeks 4-5)
+- [ ] **Author 1 - LSTM Model:**
+  - [ ] Prepare sequential data for LSTM input
+  - [ ] Design and implement LSTM architecture
+  - [ ] Train model with temporal and text sequence data
+  - [ ] Tune hyperparameters (learning rate, batch size, LSTM units, dropout)
+  
+- [ ] **Author 2 - Random Forest Model:**
+  - [ ] Prepare feature matrix with engineered features
+  - [ ] Implement Random Forest classifier
+  - [ ] Train model with diverse feature set
+  - [ ] Tune hyperparameters (n_estimators, max_depth, min_samples_split)
 
 - Week 4–5: Model training and evaluation  
 
