@@ -51,7 +51,7 @@ This project aims to predict whether a Reddit post will go viral based on its co
   - **Engagement features**: Post score, comment score, comment-to-score ratio, total engagement, comment presence and length
   - **Subreddit features**: Subreddit frequency (from `reddit_data_counts.json`)
 
-- Posts in the top 10% of the score distribution will be labeled as viral to maintain consistency across both datasets.
+- Posts in the top 30% of the virality score distribution are labeled as viral. The virality score is computed as `v = z_post + α × z_comment`, where α (alpha) is a hyperparameter tuned through grid search.
 
 ## Model Plans
 
@@ -67,7 +67,99 @@ Author 2 (Uyen Pham) will work with the **Reddit dataset** and design a **Random
 - **Engagement features**: Post score, comment score, comment-to-score ratio, total engagement, comment presence indicators
 - **Subreddit features**: Subreddit frequency (loaded from `reddit_data_counts.json`)
 
-The ensemble nature of Random Forest allows it to capture non-linear relationships between features and virality, while its ability to provide feature importance scores will help identify which factors most strongly predict viral content. By training on multiple decision trees and aggregating their predictions, Random Forest will be robust to overfitting and capable of handling the mixed data types common in social media analysis. The model will output both a binary classification (viral or not viral) and feature importance rankings to understand what drives virality.
+## Data Access Statements
+
+### Author 1 (Kundyz Serzhankyzy)
+- **Dataset**: Reddit Conversations dataset from Kaggle
+- **Source**: [https://www.kaggle.com/datasets/jerryqu/reddit-conversations](https://www.kaggle.com/datasets/jerryqu/reddit-conversations)
+- **Access**: The dataset must be downloaded from Kaggle. You will need a Kaggle account and API credentials to access the data. Place the downloaded dataset files in the appropriate directory as specified in the data preparation notebook.
+
+### Author 2 (Uyen Pham)
+- **Dataset**: Reddit dataset from Kaggle
+- **Source**: [https://www.kaggle.com/datasets/rohitrajesh/reddit-dataset](https://www.kaggle.com/datasets/rohitrajesh/reddit-dataset)
+- **Access**: The dataset must be downloaded from Kaggle. You will need a Kaggle account and API credentials to access the data.
+- **Preprocessed Data**: The `Uyen/data/` directory contains preprocessed feature files (`reddit_features.csv`) and saved model files (`random_forest_model.pkl`) that can be used directly without re-running the full preprocessing pipeline.
+
+## Installation Instructions
+
+These installation instructions apply to both the `Uyen/` (Random Forest) and `Kundyz/` (LSTM) implementations. To set up and run this project, follow these steps:
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd trend-teller
+   ```
+
+2. **Create a conda environment (recommended):**
+   ```bash
+   conda create -n trend-teller python=3.8
+   conda activate trend-teller
+   ```
+
+3. **Install required packages:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+   Or install using conda:
+   ```bash
+   conda install --file requirements.txt
+   ```
+   
+   **Note**: Both `Uyen/` and `Kundyz/` folders may have their own `requirements.txt` files. Install the root `requirements.txt` for common dependencies, and check individual folders for additional requirements if needed.
+
+4. **Launch Jupyter Notebook:**
+   ```bash
+   jupyter notebook
+   ```
+
+5. **Open the notebooks:**
+   - **For Random Forest implementation** (Author 2 - Uyen Pham), navigate to the `Uyen/` folder:
+     - `1_Data_Preprocessing.ipynb` - Data loading, feature engineering, and virality score computation
+     - `2_Model_Construction.ipynb` - Random Forest model training and saving
+     - `3_Model_Evaluation.ipynb` - Model evaluation, metrics, and visualizations
+   - **For LSTM implementation** (Author 1 - Kundyz Serzhankyzy), navigate to the `Kundyz/` folder:
+     - `LSTM_data_preparation.ipynb` - LSTM data preparation
+     - `LSTM_model.ipynb` - LSTM model training
+     - `LSTM_evaluation_analysis.ipynb` - LSTM model evaluation
+
+The project requires Python 3.8 or higher and is compatible with Windows, macOS, and Linux operating systems. The same conda environment can be used for both implementations.
+
+## Future Updates and Improvements
+
+If we were to continue working on this project, we would pursue the following updates and improvements:
+
+1. **Enhanced Feature Engineering:**
+   - Incorporate sentiment analysis features from post titles and bodies
+   - Add topic modeling features (e.g., LDA, NMF) to capture thematic content
+   - Extract named entities and their relationships
+   - Include temporal features like posting time relative to subreddit activity patterns
+
+2. **Model Improvements:**
+   - Experiment with ensemble methods combining LSTM and Random Forest predictions
+   - Implement deep learning architectures (e.g., BERT, GPT-based models) for better text understanding
+   - Add attention mechanisms to identify which parts of the content drive virality
+   - Explore graph neural networks to model relationships between posts, users, and subreddits
+
+3. **Data Expansion:**
+   - Collect real-time Reddit data using the Reddit API for more current predictions
+   - Incorporate additional metadata (user history, subreddit characteristics, cross-post patterns)
+   - Add multi-platform data (Twitter, Instagram) to create a cross-platform virality predictor
+
+4. **Evaluation and Validation:**
+   - Implement cross-validation strategies specific to temporal data
+   - Create a live prediction system with A/B testing capabilities
+   - Develop a feedback loop to continuously improve model performance
+
+5. **Deployment and Usability:**
+   - Create a web application or API for real-time virality predictions
+   - Build a dashboard for visualizing feature importance and model performance
+   - Develop a browser extension that provides virality predictions while browsing Reddit
+
+6. **Research Extensions:**
+   - Investigate causal relationships between features and virality (beyond correlation)
+   - Study the impact of external events (news, trends) on post virality
+   - Analyze how virality patterns differ across different subreddit communities
 
 ## Project Timeline
 
@@ -78,43 +170,45 @@ The ensemble nature of Random Forest allows it to capture non-linear relationshi
 - [x] Download and load Reddit dataset (Author 2)
 - [x] Complete initial data exploration and quality assessment
 - [x] Implement virality labeling (composite score approach with top 30% threshold for Author 1)
+- [x] Implement virality labeling (top 30% threshold) for Reddit dataset (Author 2)
 
-### Phase 2: Feature Engineering and Preprocessing (Week 3) 
-- [ ] Extract and engineer text-based features (character count, word count, punctuation patterns)
-- [ ] Extract temporal features (hour, day of week, posting patterns)
-- [ ] Calculate engagement metrics and ratios (comment-to-score ratios, total engagement)
-- [ ] Perform advanced feature engineering:
+### Phase 2: Feature Engineering and Preprocessing (Week 3) ✅ Completed (Author 2)
+- [x] Extract and engineer text-based features (character count, word count, punctuation patterns)
+- [x] Calculate engagement metrics and ratios (comment-to-score ratios, total engagement)
+- [x] Perform advanced feature engineering:
   - Author 1: Sequence features for LSTM (conversation thread patterns, temporal sequences)
   - Author 2: Text and engagement features for Random Forest (text length, word count, engagement ratios, subreddit encoding)
-- [ ] Handle missing values and outliers
-- [ ] Normalize and scale features as needed
+- [x] Handle missing values and outliers
+- [x] Compute virality scores with tunable alpha hyperparameter
 
 ### Phase 3: Model Development (Weeks 4-5)
-- [ ] **Author 1 - LSTM Model:**
-  - [ ] Prepare sequential data for LSTM input
-  - [ ] Design and implement LSTM architecture
-  - [ ] Train model with temporal and text sequence data
-  - [ ] Tune hyperparameters (learning rate, batch size, LSTM units, dropout)
+- [x] **Author 1 - LSTM Model:**
+  - [x] Prepare sequential data for LSTM input
+  - [x] Design and implement LSTM architecture
+  - [x] Train model with temporal and text sequence data
+  - [x] Tune hyperparameters (learning rate, batch size, LSTM units, dropout)
   
-- [ ] **Author 2 - Random Forest Model:**
-  - [ ] Prepare feature matrix with engineered features
-  - [ ] Implement Random Forest classifier
-  - [ ] Train model with diverse feature set
-  - [ ] Tune hyperparameters (n_estimators, max_depth, min_samples_split)
+- [x] **Author 2 - Random Forest Model:**
+  - [x] Prepare feature matrix with engineered features
+  - [x] Implement Random Forest classifier
+  - [x] Train model with diverse feature set
+  - [x] Tune hyperparameters (n_estimators=100, max_depth=10, min_samples_split=5, class_weight='balanced')
 
-## Phase 4: Model Evaluation and Analysis (Week 5)
-- [ ] Split data into train/validation/test sets  
-- [ ] Evaluate both models using multiple metrics:
+## Phase 4: Model Evaluation and Analysis (Week 5) ✅ Completed (Author 2)
+- [x] Split data into train/validation/test sets  
+- [x] Evaluate Random Forest model using multiple metrics:
   - Accuracy, Precision, Recall, F1-score  
   - ROC-AUC curves  
   - Confusion matrices  
-- [ ] Compare model performance  
-- [ ] Analyze feature importance (Random Forest) and attention patterns (LSTM)  
-- [ ] Identify key factors driving virality predictions  
+- [x] Analyze feature importance (Random Forest)
+- [x] Identify key factors driving virality predictions
+- [x] Perform subgroup analysis by text length quartiles
+- [x] Create visualizations of model behavior and performance  
 
-## Phase 5: Results and Documentation (Week 6)
-- [ ] Compile comprehensive results summary  
-- [ ] Create visualizations of model performance and feature importance  
-- [ ] Document findings and insights about viral content patterns  
+## Phase 5: Results and Documentation (Week 6) ✅ In Progress
+- [x] Compile comprehensive results summary  
+- [x] Create visualizations of model performance and feature importance  
+- [x] Document findings and insights about viral content patterns  
+- [x] Organize project files into author-specific folders (`Uyen/` and `Kundyz/`)
 - [ ] Prepare final report with methodology, results, and conclusions  
 - [ ] Review and refine documentation  
