@@ -30,7 +30,7 @@ This project aims to predict whether a Reddit post will go viral based on its co
 
 - Extract text, conversation threads, posting time, and engagement metrics from the dataset.
 
-- A post will be labeled as viral if its engagement exceeds a certain threshold, such as being in the top 10% by score or comment count.
+- Posts are labeled as viral using a **composite virality score** that combines multiple engagement features (conversation length, thread depth, engagement metrics, etc.). The top 30% of posts by this composite score are labeled as viral (1), the bottom 30% as not viral (0), and the middle 40% are labeled based on a median threshold. This approach creates a balanced dataset (approximately 50/50 class distribution) and prevents the model from trivially memorizing simple patterns, leading to more robust predictions.
 
 ### Author 2
 
@@ -77,7 +77,7 @@ The ensemble nature of Random Forest allows it to capture non-linear relationshi
 - [x] Download and load Reddit Conversations dataset (Author 1)
 - [x] Download and load Reddit dataset (Author 2)
 - [x] Complete initial data exploration and quality assessment
-- [ ] Implement virality labeling (top 10% threshold) for both datasets
+- [x] Implement virality labeling (composite score approach with top 30% threshold for Author 1)
 
 ### Phase 2: Feature Engineering and Preprocessing (Week 3) 
 - [ ] Extract and engineer text-based features (character count, word count, punctuation patterns)
