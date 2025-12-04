@@ -92,7 +92,7 @@ These installation instructions apply to both the `Uyen/` (Random Forest) and `K
 
 2. **Create a conda environment (recommended):**
    ```bash
-   conda create -n trend-teller python=3.8
+   conda create -n trend-teller python=3.12
    conda activate trend-teller
    ```
 
@@ -127,39 +127,13 @@ The project requires Python 3.8 or higher and is compatible with Windows, macOS,
 
 ## Future Updates and Improvements
 
-If we were to continue working on this project, we would pursue the following updates and improvements:
+If we were to continue working on this project, we would pursue the following updates:
 
-1. **Enhanced Feature Engineering:**
-   - Incorporate sentiment analysis features from post titles and bodies
-   - Add topic modeling features (e.g., LDA, NMF) to capture thematic content
-   - Extract named entities and their relationships
-   - Include temporal features like posting time relative to subreddit activity patterns
-
-2. **Model Improvements:**
-   - Experiment with ensemble methods combining LSTM and Random Forest predictions
-   - Implement deep learning architectures (e.g., BERT, GPT-based models) for better text understanding
-   - Add attention mechanisms to identify which parts of the content drive virality
-   - Explore graph neural networks to model relationships between posts, users, and subreddits
-
-3. **Data Expansion:**
-   - Collect real-time Reddit data using the Reddit API for more current predictions
-   - Incorporate additional metadata (user history, subreddit characteristics, cross-post patterns)
-   - Add multi-platform data (Twitter, Instagram) to create a cross-platform virality predictor
-
-4. **Evaluation and Validation:**
-   - Implement cross-validation strategies specific to temporal data
-   - Create a live prediction system with A/B testing capabilities
-   - Develop a feedback loop to continuously improve model performance
-
-5. **Deployment and Usability:**
-   - Create a web application or API for real-time virality predictions
-   - Build a dashboard for visualizing feature importance and model performance
-   - Develop a browser extension that provides virality predictions while browsing Reddit
-
-6. **Research Extensions:**
-   - Investigate causal relationships between features and virality (beyond correlation)
-   - Study the impact of external events (news, trends) on post virality
-   - Analyze how virality patterns differ across different subreddit communities
+1. **Enhanced Feature Engineering:** Incorporate sentiment analysis, topic modeling, and temporal features
+2. **Model Improvements:** Experiment with ensemble methods, deep learning architectures (BERT, GPT), and attention mechanisms
+3. **Data Expansion:** Collect real-time Reddit data and incorporate multi-platform data (Twitter, Instagram)
+4. **Deployment:** Create a web application or API for real-time virality predictions with a visualization dashboard
+5. **Research Extensions:** Investigate causal relationships and study how external events impact post virality
 
 ## Project Timeline
 
