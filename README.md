@@ -163,16 +163,15 @@ If we were to continue working on this project, we would pursue the following up
 
 ## Project Timeline
 
-### Phase 1: Data Collection and Initial Preparation (Weeks 1-2) ✅ In progress
+### Phase 1: Data Collection and Initial Preparation (Weeks 1-2) ✅ Complete
 - [x] Set up project structure and documentation
 - [x] Create data preparation notebook with automated data loading and cleaning pipeline
 - [x] Download and load Reddit Conversations dataset (Author 1)
 - [x] Download and load Reddit dataset (Author 2)
 - [x] Complete initial data exploration and quality assessment
-- [x] Implement virality labeling (composite score approach with top 30% threshold for Author 1)
-- [x] Implement virality labeling (top 30% threshold) for Reddit dataset (Author 2)
+- [x] Implement virality labeling (top 30% threshold) 
 
-### Phase 2: Feature Engineering and Preprocessing (Week 3) ✅ Completed (Author 2)
+### Phase 2: Feature Engineering and Preprocessing (Week 3) ✅ Completed 
 - [x] Extract and engineer text-based features (character count, word count, punctuation patterns)
 - [x] Calculate engagement metrics and ratios (comment-to-score ratios, total engagement)
 - [x] Perform advanced feature engineering:
@@ -194,7 +193,7 @@ If we were to continue working on this project, we would pursue the following up
   - [x] Train model with diverse feature set
   - [x] Tune hyperparameters (n_estimators=100, max_depth=10, min_samples_split=5, class_weight='balanced')
 
-## Phase 4: Model Evaluation and Analysis (Week 5) ✅ Completed (Author 2)
+## Phase 4: Model Evaluation and Analysis (Week 5) ✅ Completed
 - [x] Split data into train/validation/test sets  
 - [x] Evaluate Random Forest model using multiple metrics:
   - Accuracy, Precision, Recall, F1-score  
