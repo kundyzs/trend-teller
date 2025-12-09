@@ -182,6 +182,4 @@ If we were to continue working on this project, we would pursue the following up
 - [x] Compile comprehensive results summary  
 - [x] Create visualizations of model performance and feature importance  
 - [x] Document findings and insights about viral content patterns  
-- [x] Organize project files into author-specific folders (`Uyen/` and `Kundyz/`)
-- [ ] Prepare final report with methodology, results, and conclusions  
-- [ ] Review and refine documentation  
+- [x] Organize project files into author-specific folders (`Uyen/` and `Kundyz/`)  
