@@ -1,4 +1,4 @@
-# Post Virality Predictor
+# Reddit Post Virality Predictor
 
 ## Authors
 
@@ -8,7 +8,7 @@
 
 ## Description of Question and Research Topic
 
-This project aims to predict whether a Reddit post will go viral based on its content, metadata, and engagement metrics. We want to understand which factors—such as text, time of posting, or user influence—most affect virality. By analyzing Reddit posts from different datasets, we hope to identify generalizable patterns of viral content. This research can provide insights for marketers, content creators, and social media analysts. Ultimately, we aim to build a machine learning model that predicts a post's virality with high accuracy.
+This project aims to predict whether a Reddit post will go viral based on its content, metadata, and engagement metrics. We want to understand which factors, such as text, time of posting, or user influence, most affect virality. By analyzing Reddit posts from different datasets, we hope to identify generalizable patterns of viral content. This research can provide insights for marketers, content creators, and social media analysts. Ultimately, we aim to build a machine learning model that predicts a post's virality with high accuracy.
 
 ## Project Outline/Plan
 
@@ -86,7 +86,7 @@ These installation instructions apply to both the `Uyen/` (Random Forest) and `K
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/kundyzs/trend-teller.git
    cd trend-teller
    ```
 
@@ -137,7 +137,7 @@ If we were to continue working on this project, we would pursue the following up
 
 ## Project Timeline
 
-### Phase 1: Data Collection and Initial Preparation (Weeks 1-2) ✅ Complete
+### Phase 1: Data Collection and Initial Preparation (Weeks 1-2)
 - [x] Set up project structure and documentation
 - [x] Create data preparation notebook with automated data loading and cleaning pipeline
 - [x] Download and load Reddit Conversations dataset (Author 1)
@@ -145,7 +145,7 @@ If we were to continue working on this project, we would pursue the following up
 - [x] Complete initial data exploration and quality assessment
 - [x] Implement virality labeling (top 30% threshold) 
 
-### Phase 2: Feature Engineering and Preprocessing (Week 3) ✅ Completed 
+### Phase 2: Feature Engineering and Preprocessing (Week 3) 
 - [x] Extract and engineer text-based features (character count, word count, punctuation patterns)
 - [x] Calculate engagement metrics and ratios (comment-to-score ratios, total engagement)
 - [x] Perform advanced feature engineering:
@@ -167,7 +167,7 @@ If we were to continue working on this project, we would pursue the following up
   - [x] Train model with diverse feature set
   - [x] Tune hyperparameters (n_estimators=100, max_depth=10, min_samples_split=5, class_weight='balanced')
 
-## Phase 4: Model Evaluation and Analysis (Week 5) ✅ Completed
+## Phase 4: Model Evaluation and Analysis (Week 5)
 - [x] Split data into train/validation/test sets  
 - [x] Evaluate Random Forest model using multiple metrics:
   - Accuracy, Precision, Recall, F1-score  
@@ -178,7 +178,7 @@ If we were to continue working on this project, we would pursue the following up
 - [x] Perform subgroup analysis by text length quartiles
 - [x] Create visualizations of model behavior and performance  
 
-## Phase 5: Results and Documentation (Week 6) ✅ In Progress
+## Phase 5: Results and Documentation (Week 6) 
 - [x] Compile comprehensive results summary  
 - [x] Create visualizations of model performance and feature importance  
 - [x] Document findings and insights about viral content patterns  
