@@ -167,7 +167,7 @@ If we were to continue working on this project, we would pursue the following up
   - [x] Train model with diverse feature set
   - [x] Tune hyperparameters (n_estimators=100, max_depth=10, min_samples_split=5, class_weight='balanced')
 
-## Phase 4: Model Evaluation and Analysis (Week 5)
+### Phase 4: Model Evaluation and Analysis (Week 5)
 - [x] Split data into train/validation/test sets  
 - [x] Evaluate Random Forest model using multiple metrics:
   - Accuracy, Precision, Recall, F1-score  
@@ -178,7 +178,7 @@ If we were to continue working on this project, we would pursue the following up
 - [x] Perform subgroup analysis by text length quartiles
 - [x] Create visualizations of model behavior and performance  
 
-## Phase 5: Results and Documentation (Week 6) 
+### Phase 5: Results and Documentation (Week 6) 
 - [x] Compile comprehensive results summary  
 - [x] Create visualizations of model performance and feature importance  
 - [x] Document findings and insights about viral content patterns  
